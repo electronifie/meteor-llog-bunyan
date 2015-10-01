@@ -1,3 +1,3 @@
-log = require('llog');
+log = Npm.require('llog');
 
 this.Log = log;
