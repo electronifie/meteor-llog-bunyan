@@ -13,4 +13,5 @@ Npm.depends({
 Package.onUse(function(api) {
   api.versionsFrom('METEOR@0.9.0');
   api.addFiles('electronifie-llog-bunyan.js', 'server');
+  api.addFiles('electronifie-llog-bunyan.js', 'client');
 });
