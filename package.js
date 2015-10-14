@@ -6,7 +6,7 @@ Package.describe({
 });
 
 Npm.depends({
-  "llog": "0.0.10",
+  "llog": "0.0.11",
   "bunyan": "1.5.1"
 });
 
