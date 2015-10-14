@@ -1,4 +1,18 @@
 log = Npm.require('llog');
 
-// Make sure to remove the "logging" package before doing this (Package.logging.Log)
 this.Logger = log;
+
+var levels = [ "info", "warn", "error", "debug", "fatal", "trace" ];
+
+// Add meteor methods
+levels.forEach(function(level) {
+  var method = {};
+  var methodName = "log." + level;
+
+  method[methodName] = function(msg) {
+    log[level]({userId:this.userId, clientAddress: this.connection.clientAddress}, msg);
+  }
+
+  Meteor.methods(method)
+}.bind(this));
+

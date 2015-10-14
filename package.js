@@ -1,7 +1,7 @@
 Package.describe({
   name: 'electronifie:meteor-llog-bunyan',
   summary: "llog logging with bunyan support",
-  version: "0.0.1",
+  version: "0.0.2",
   git: "https://github.com/electronifie/meteor-llog-bunyan.git"
 });
 
