@@ -19,7 +19,7 @@ if (Meteor.isServer) {
       }
     }
 
-    Meteor.methods(method)
+    Meteor.methods(method);
   }.bind(this));
 } else {
   this.Logger = {};
@@ -27,7 +27,15 @@ if (Meteor.isServer) {
     var methodName = "log." + level;
 
     this.Logger[level] = function(msg) {
-      Meteor.call(methodName, msg);
+      if (level === "error") {
+        console.error(msg);
+      } else {
+        console.log(msg);
+      }
+
+      Meteor.call(methodName, msg, function (err, res) {
+        if (err) { console.error("Exception during remote log call: " + err); }
+      });
     };
 
   }.bind(this));
