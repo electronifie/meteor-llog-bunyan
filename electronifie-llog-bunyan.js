@@ -11,7 +11,10 @@ if (Meteor.isServer) {
     var methodName = "log." + level;
 
     method[methodName] = function(msg) {
-      check(msg, String);
+      if (check) {
+        console.log("Got check");
+        check(msg, String);
+      }
 
       // Only allow Meteor method Logger invocations if authenticated
       if (Meteor.userId()) {
