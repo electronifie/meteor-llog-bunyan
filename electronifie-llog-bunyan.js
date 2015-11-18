@@ -12,7 +12,6 @@ if (Meteor.isServer) {
 
     method[methodName] = function(msg) {
       if (check) {
-        console.log("Got check");
         check(msg, String);
       }
 
